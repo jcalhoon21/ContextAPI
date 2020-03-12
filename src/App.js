@@ -1,10 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import ThemeContext from './context/ThemeContext';
+import Header from './components/Header';
+import MainWithFunction from './components/MainWithFunction';
 
-function App() {
+
+const App = () => {
+  // const theme = 'light'; -- change to this
+  const themeHook = useState("light");
   return (
-    <div className="App">
+    // <ThemeContext.Provider value={theme}>
+    <ThemeContext.Provider value={themeHook}>
+    {/* <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,7 +26,13 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </div> */}
+
+      <div>
+        <Header />
+        <MainWithFunction />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 
